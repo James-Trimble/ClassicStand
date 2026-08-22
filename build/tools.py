@@ -428,7 +428,8 @@ def run_release(skip_compile, skip_package, skip_release, skip_website, skip_emp
                     continue  # optional: only some games ship a lib/ folder of runtime DLLs / helper exes
                 print(f"ERROR: missing asset folder: {asset_src}")
                 return
-            shutil.copytree(asset_src, os.path.join(BUNDLE, folder), dirs_exist_ok=True)
+            # Exclude the plaintext map source master (neighborhood.map.src); only the encrypted .map ships.
+            shutil.copytree(asset_src, os.path.join(BUNDLE, folder), dirs_exist_ok=True, ignore=shutil.ignore_patterns("*.map.src"))
         print("Replacing compiled output in release folder...")
         dest = os.path.join(RELEASE_DIR, NVGT_OUT)
         if os.path.exists(dest):
