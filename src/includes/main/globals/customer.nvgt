@@ -460,11 +460,11 @@ else if(ctype == "charitable") tip_chance = 100;
 else if(ctype == "returning") tip_chance = min(99, tip_chance + 20);
 else if(ctype == "mean" and !customers[idx].calmed) tip_chance = 0;
 else if(ctype == "child") tip_chance = int(tip_chance * 0.3);
-string flavor_note = "";
-if(salt_in_good_band(this_sal)) { tip_chance = min(99, tip_chance + int(threshold_get("salt_tip_bonus", 15))); flavor_note += " That subtle hint of salt really brings the flavor to life!"; }
-if(ice_in_good_band_hot(this_ice)) { tip_chance = min(99, tip_chance + int(threshold_get("ice_tip_bonus", 15))); flavor_note += " And it is wonderfully ice cold, so refreshing on a hot day like this!"; }
+string[] flavor_notes;
+if(salt_in_good_band(this_sal)) { tip_chance = min(99, tip_chance + int(threshold_get("salt_tip_bonus", 15))); flavor_notes.insert_last("That subtle hint of salt really brings the flavor to life!"); }
+if(ice_in_good_band_hot(this_ice)) { tip_chance = min(99, tip_chance + int(threshold_get("ice_tip_bonus", 15))); flavor_notes.insert_last("And it is wonderfully ice cold, so refreshing on a hot day like this!"); }
 int talk_bonus = talk_tip_bonus(ctype, customers[idx].talk_count);
-if(talk_bonus > 0) { tip_chance = min(99, tip_chance + talk_bonus); flavor_note += " Your friendly chat earlier clearly left them in a generous mood."; }
+if(talk_bonus > 0) { tip_chance = min(99, tip_chance + talk_bonus); flavor_notes.insert_last("Your friendly chat earlier clearly left them in a generous mood."); }
 if(random(0, 99) < tip_chance)
 {
 double tip_min = selling_price * 0.05;
@@ -484,8 +484,9 @@ else if(ctype == "critic") good_msg = "The critic scribbles in their notebook. I
 else if(ctype == "elderly") good_msg = "The elderly customer smiles contentedly. Oh that's just lovely, dear. They pay you " + convert_to_currency(earned) + "." + tip_msg;
 else if(ctype == "child") good_msg = "The child's eyes light up. This is the best lemonade EVER! They pay you " + convert_to_currency(earned) + "." + tip_msg;
 else good_msg = "The customer finishes their lemonade. " + feedback + " They pay you " + convert_to_currency(earned) + "." + tip_msg;
-good_msg += flavor_note;
 dlg(good_msg);
+for(uint fn = 0; fn < flavor_notes.length(); fn++)
+dlg(flavor_notes[fn]);
 cups += cups_needed;
 double rep_gain = 1.0 + (daynumber / 10.0);
 if(ctype == "critic") rep_gain *= 3.0;

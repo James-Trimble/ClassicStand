@@ -417,7 +417,7 @@ speak("Mixing... Please wait.");
 p.play_stationary("sounds/misc/makestart.ogg", false);
 dlgplay("sounds/misc/makeloop.ogg");
 p.play_stationary("sounds/misc/makestop.ogg", false);
-dlg("Success. You made " + cupcount + " cup" + (cupcount == 1 ? "" : "s") + " of lemonade. Each cup is worth " + convert_to_currency(price_per_cup) + " based on your ingredients.");
+dlg("Success. You made " + cupcount + " cup" + (cupcount == 1 ? "" : "s") + " of lemonade. Each cup used about " + convert_to_currency(price_per_cup) + " worth of ingredients.");
 last_menu_id = "";
 actsmenu();
 }

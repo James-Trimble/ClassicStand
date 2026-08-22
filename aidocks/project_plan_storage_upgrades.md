@@ -47,4 +47,4 @@ Each owned tier multiplies down that ingredient's overnight loss fraction: in th
 ## Open (implementation detail, handle at build time)
 - Store/parser format for **one-time owned-tier purchases** (own tier N unlocks N+1). Likely a `.store`-style file listing the four upgrades with tier reductions + costs, a parser tracking the owned tier per upgrade (saved per game), and applying `loss *= (1 - reduction)` in the overnight spoilage loop. Base spoilage rates move fully to config too.
 
-## Status: FULLY PLANNED, not yet built (dev paused the build 2026-08-22 for an unrelated task).
+## Status: IMPLEMENTED & confirmed working 2026-08-22 (v3.6). Built in two sections: A) softened base rates moved to main.table [spoilage]; B) the Preservation shop (main.table [storage] config, storage_tiers dict + storage_reduction helper, preservemenu at x37,y26–27, per-tier owned state saved). All decisions above shipped as recorded.
