@@ -32,6 +32,7 @@ A small pinch of salt improves an already good drink and makes a customer more l
 Pricing:
 
 You set your prices at the pricing station at your lemonade stand. Your base price per cup carries over from day to day, clamped into that day's allowed range, so you only change it when you want to rather than being asked every morning.
+
 A suggested price is based on your current day and level. The minimum is the suggested price and the maximum is four times the suggested price. Prices between one and two times the suggested price cause customers to hesitate. Prices above two times the suggested price give customers a chance to refuse outright, with the chance increasing the higher you go. Desperate customers never refuse no matter the price.
 The pricing station also lets you set a different price for each customer type as a percentage of the base, such as a discount for children or the elderly. Each type's hesitation, refusal chance, and patience are based on their own price rather than the base, so a discounted group is more patient and less likely to refuse, while an overcharged group grows impatient and refuses more often. The config files set the starting per-type prices and the allowed percentage range, while the pricing station sets your own prices within those limits for the current game.
 
@@ -67,7 +68,7 @@ Severely unbalanced lemonade causes a full tantrum. The customer spits it out, s
 
 Spills and napkins:
 
-When a customer spills their drink, the counter becomes wet. Use a napkin on the wet tile to clean it up, then recycle the used napkin from your inventory with shift enter. The greeter offers you a napkin when a spill first happens, and you can buy more napkins, singly or in small, medium, and large packs, at the cleaning station in the market.
+When a customer spills their drink, the counter becomes wet. Use a napkin on the wet tile to clean it up, then recycle the used napkin from your inventory with shift enter. If a spill happens and you have no napkins on hand, the greeter offers you one as a fallback, and you can also buy napkins, single or in small, medium, and large packs, at the cleaning station in the market.
 
 Reputation:
 
