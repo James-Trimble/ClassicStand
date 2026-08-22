@@ -39,6 +39,7 @@ The pricing station also lets you set a different price for each customer type a
 Serving customers:
 
 When customers arrive at the counter, press enter to open the serve menu. This lists all waiting customers along with their direction and type. Patience timers are frozen while the menu is open. From here you can select an individual customer to talk or serve them, or choose serve all to handle everyone at once with a single drink sequence followed by a full summary. If you leave customers waiting too long without opening the menu, their patience will run out and they will leave on their own with a reputation penalty. Different customer types have different patience levels, so some will wait longer than others.
+If you press enter at the counter while no one is waiting, you will be told there are no customers to serve.
 
 Customer types:
 

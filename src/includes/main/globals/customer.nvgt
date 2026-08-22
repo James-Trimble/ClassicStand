@@ -1011,6 +1011,8 @@ if(customers[i].waiting and !customers[i].leaving)
 { any_waiting = true; break; }
 if(any_waiting)
 open_serve_menu();
+else
+speak("There are no customers waiting to be served.");
 }
 void spawn_customer_wave()
 {

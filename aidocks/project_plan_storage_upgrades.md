@@ -34,9 +34,17 @@ Each owned tier multiplies down that ingredient's overnight loss fraction: in th
 
 **Accessibility:** overnight spoilage is already spoken; upgrade purchases confirmed by speech; the shop menu reads each upgrade's current tier and its effect.
 
-## Open sub-decisions to confirm before coding
-1. Exact softened base spoilage rates per ingredient (esp. ice).
-2. Number of tiers (default I/II/III?) and each tier's reduction % and cost.
-3. **Shop placement** — a new market station (like the Pricing station got x8/y25) vs a submenu in an existing market store. Decide the coordinates/name the way we did for pricing.
-4. Store/parser format for **one-time owned-tier purchases** (own tier N unlocks N+1; hide/disable already-owned lower tiers).
-5. Confirm all base rates move fully to config (recommended — enables both modding and the upgrade multiplier).
+## Decisions
+- **Softened base spoilage rates — DECIDED 2026-08-22** (fresh nightly loss %, before any upgrade; all move to config): **ice 15–30%** (was 50–100%), **lemons 5–15%** (was 10–30%), **salt 5–15%** (was 10–30%), **water 5–10%** (was 5–15%).
+
+- **Scope — DECIDED 2026-08-22: Option A, 4 upgrades, overnight spoilage only.** Icebox (ice), Pantry (lemons), Sealed jars (salt), Covered jugs (water). NO sugar upgrade and NO cold-freeze-event coverage — sugar only spoils via the `ingredient_freeze_sugar` cold event, which stays an unpreventable weather risk. (Confirmed sugar is NOT in the overnight spoilage loop; salt is in both the loop and its cold event, but upgrades only touch the loop.)
+- **Tiers — DECIDED 2026-08-22: 4 tiers each, reductions 20% / 40% / 60% / 80%** of the nightly loss (owning a higher tier supersedes lower). At tier IV an ingredient loses only 20% of its base rate.
+
+- **Shop placement & name — DECIDED 2026-08-22:** a new market station **"Preservation shop"** at **x37, y26–27** (1×2 tile, north of the cleaning station at 37,25; in the gap column between ingredients x32–36 and poster shop x38–42). Handler `preservemenu`. Map lines: `menu 37 37 26 27 preservemenu` + `zone 37 37 26 27 Preservation shop. Press enter to buy storage upgrades.`
+
+- **Per-tier costs — DECIDED 2026-08-22: $5 / $20 / $40 / $60** (uniform across all four upgrades; flat one-time prices, config-tunable). Menu lists each upgrade's next buyable tier, **sorted cheapest-first**; a maxed (tier IV) upgrade drops off / shows maxed. Buying all four to tier IV cuts each ingredient's nightly loss to ~20% of base (small trickle, never zero — the 80% cap keeps a reason to keep selling).
+
+## Open (implementation detail, handle at build time)
+- Store/parser format for **one-time owned-tier purchases** (own tier N unlocks N+1). Likely a `.store`-style file listing the four upgrades with tier reductions + costs, a parser tracking the owned tier per upgrade (saved per game), and applying `loss *= (1 - reduction)` in the overnight spoilage loop. Base spoilage rates move fully to config too.
+
+## Status: FULLY PLANNED, not yet built (dev paused the build 2026-08-22 for an unrelated task).
