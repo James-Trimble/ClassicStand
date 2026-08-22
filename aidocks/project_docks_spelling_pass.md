@@ -7,6 +7,8 @@ metadata:
   originSessionId: 841c7bbe-eeb5-4073-8c9a-f9730d0662d1
 ---
 
+**DONE 2026-08-22 (post-3.6):** spelling pass applied across changelog.txt (14 clear typos + summery/grater/sails/weather/their/it's/let's context fixes), credits.txt (feadbacks), todo_list.txt (sertain, piture); readme.txt was clean. `passerbys`/`recycleable` left as-is (style). Mid-sentence capitalizations and a double-space in old changelog entries were left (spelling-only scope) — offered to the dev as optional follow-up. Original deferred task below.
+
 **Deferred to "much later" (dev decision 2026-08-20): do a full spelling + grammar pass across every player-facing dock in `cst/docks/`, not just the changelog.** Scope: `changelog.txt`, `readme.txt`, `todo_list.txt`, `credits.txt` (and any new docks). Do this **after** the current bug/feature work is done, so it's a single clean sweep rather than piecemeal.
 
 **Rules for the pass:**

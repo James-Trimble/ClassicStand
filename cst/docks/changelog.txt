@@ -7,10 +7,10 @@ Fixed a bug where customers kept losing patience while you were in the serve men
 Made it so salt and ice now have an upside instead of only ever causing complaints. A pinch of salt makes an already good drink taste better and customers more likely to tip, and on a hot day a good amount of ice does the same while letting you add more ice before it counts as too icy. Too much salt or ice still draws complaints, and on a cold day customers turn on ice sooner.
 Added a way to adjust the overall sound source volume while playing with the Home and End keys, where Home raises it and End lowers it. Your chosen level is saved between sessions.
 Removed the level number from the time readout on the T key and from the business info screen, so both now show only the time of day. The level number is now purely internal.
-Fixed a bug where the menu's music volume was being written to the wrong save file. It will now write the adjusted setting into the propper gamesets.clm file moving forward.
+Fixed a bug where the menu's music volume was being written to the wrong save file. It will now write the adjusted setting into the proper gamesets.clm file moving forward.
 Made it so saved games and game settings are now encrypted on disk. They can no longer be opened or edited with a plain text editor. Any existing unencrypted save or settings file still loads and is converted automatically the next time it is saved.
 New in 3.5.
-Made it so each segment of the day now feels longer do to raising wave sizes, so early periods now open with a real line of customers instead of ending almost as soon as they begin.
+Made it so each segment of the day now feels longer due to raising wave sizes, so early periods now open with a real line of customers instead of ending almost as soon as they begin.
 You can now set how many in-game hours each level lasts in the game's config, which also decides how many levels make up a day. The value must divide evenly into 24, and prices, events, and other amounts now scale on how far through the day you are rather than the raw level number, so changing the number of levels no longer throws off the economy.
 Changed the viral video bonus so it now only happens when you have posters placed, and its cash reward scales with how many you have up. Your poster marketing now pays off with a chance at a big viral payout, instead of the bonus arriving for free and making posters feel pointless.
 Fixed a bug where customer and passerby sounds kept playing over dialog messages you were reading or while the quit menu was open. Those sounds now pause while a dialog or the quit menu is up, just like they do when you stand at the customer counter.
@@ -40,8 +40,8 @@ Updated the readme to rewrite the Game conclusion section. Removed the claim of 
 Updated the readme to add a per-section note to every config file that has limitations, clarifying what can be tuned versus what requires code changes to extend.
 Updated the readme to correct the mood tag description. Mood tags are displayed in the talk menu alongside the customer's name, not purely internal.
 Changed the polarity field in main.event from 0, 1, 2 to 1, 2, 3 to be consistent with the other enum style fields. Updated the readme and event file to match.
-Made it so configuration files get reloaded propperly when pressing control L, or when you load the game in the load game menu.
-Made it so the neighborhood map will now be encripted moving forward.
+Made it so configuration files get reloaded properly when pressing control L, or when you load the game in the load game menu.
+Made it so the neighborhood map will now be encrypted moving forward.
 New in 3.2.
 Fixed a bug where customers would walk in a straight diagonal line from their spawn point, cutting directly through the market walls and interior. Customers now walk west along the street first, then turn at the sidewalk entrance to approach the counter.
 Changed customer spawn and departure points to the open street, matching where passerbys roam. The sidewalk and market are now reserved for the player.
@@ -77,7 +77,7 @@ Added the data/config/stores folder, containing files for single ingredients, in
 Added the data/config/events folder, containing main.event which defines all random events that can fire at the end of a time period.
 Added a data-driven configuration system. Game behavior is now defined in external config files located in data/config, split into three subfolders: events, stores, and tables. This makes it possible to adjust events, store items, bundles, customer behavior, lemonade thresholds, starting inventory, and item properties without touching any code.
 Fixed a bug where the thief customer used a hardcoded patience value of 999999 to prevent the patience timer from expiring. Thieves now have a proper use_patience flag set to false, so the timer is never checked for them at all.
-Made it so poster counts get propperly reset on a fresh game.
+Made it so poster counts get properly reset on a fresh game.
 Added a keyboard shortcut, P, to check how many passerbys are currently roaming the map.
 Changed passerbys to roam the entire concrete2 street area rather than staying on one side of the map. They now spawn anywhere on the street and pick random destinations across the full map, so they naturally pass through all areas including near any posters you have placed.
 Added a passerby system. Pedestrians now walk back and forth along the street outside your stand. If you have posters placed, passers have a chance to notice one and head over to your stand as a customer. The more posters you have up, the higher the chance of convincing someone to stop by.
@@ -197,7 +197,7 @@ Added the current inventory to the tab cycling system. You can now press tab to 
 Added descriptions to all zone announcements so players know where they are, what they can do, and where to go next.
 Fixed a bug where the game would stack recursive calls when saving, loading, or dismissing the escape menu during gameplay.
 Added a business information screen that can be opened by pressing the letter I during gameplay. It displays your business title, date, time, temperature, cash, filled cups, sold cups, pitcher status, and current inventory all in one place.
-Made it so sounds can now fade out propperly upon exiting the main game.
+Made it so sounds can now fade out properly upon exiting the main game.
 Added spatially positioned ambiences to all zones of the neighborhood map. Each area plays its own distinct sounds, including residential noise on the street, random birds at the stand, distant traffic on the sidewalk, calm sounds at the actions station, crowd noise at the selling counter, and shopping center and indoor sounds at the market and buying station.
 Added a sound source system that plays spatially positioned looping ambiences on the map. Sources support random selection from a list of sounds, volume control, and automatic range calculation based on the size of the source area.
 Replaced the form-based game UI with a raw keyboard loop. The game no longer uses buttons during gameplay.
@@ -214,7 +214,7 @@ Added a shortcut to speak your current zone by pressing Q.
 Added a toggle to enable or disable zone announcements by pressing Z.
 Added a zone system that announces your current location as you walk around the map.
 New in 1.8.
-Added some keys to quicly view business information in the game keyboard area. The business information button has also been removed as well.
+Added some keys to quickly view business information in the game keyboard area. The business information button has also been removed as well.
 Enhanced the customer system for selling lemonade. It no longer depends on how many cups you made in total.
 Added the ability to load and save multiple games. There's now a load game option in the game menu.
 Restructured the entire game. There's now an actual main menu.
@@ -222,52 +222,52 @@ Removed the options menu from the main game. This will be added back later on.
 Added map based navigation support to the game. This will be used later on.
 Added the ability to quickly load and save your game progress by pressing Control L or Control S. You can also quickly exit the game by pressing Alt F4.
 Revamped the user interface in the game. The game's action, information, main, and option menus are now converted to use the audio forms system.
-Made it so the sounds for the game are no longer encripted from now on.
+Made it so the sounds for the game are no longer encrypted from now on.
 Removed the auto-filled price values for selling lemonade from the sell prompt.
 New in 1.7.
-Made it so the number of customers that show up when selling lemonade is determined by how many cups that are poured out of the piture prior to selling it.
-Revamped the lemonade seller to include a new sails popularity system. The more actual customers that show up, the higher of a chance that a single cup would be sold to them.
+Made it so the number of customers that show up when selling lemonade is determined by how many cups that are poured out of the pitcher prior to selling it.
+Revamped the lemonade seller to include a new sales popularity system. The more actual customers that show up, the higher of a chance that a single cup would be sold to them.
 Modified some customer based events to be less harsh on the player.
-Reduced the probability chanse of triggering random events when selling lemonade by 40 percent. It will no longer trigger every single time from now on.
+Reduced the probability chance of triggering random events when selling lemonade by 40 percent. It will no longer trigger every single time from now on.
 Added the ability to generate random events while selling lemonade. Watch out for these, as they can be quite unexpected when they show up.
 Removed the ability to drink the lemonade that you can make and sell. The hydration system has also been removed as well.
 Fixed some menu navigation issues.
 Added the ability to navigate to the first letter of any item in a menu.
-Added the ability to search for spisific items of intrest in the new find dialog. You can press F3 in any menu to activate it.
+Added the ability to search for specific items of interest in the new find dialog. You can press F3 in any menu to activate it.
 Recoded the entire menu system for the game.
 New in 1.6.
-Made it so the game automaticly saves your progress after changeing your business title in the game's options menu.
+Made it so the game automatically saves your progress after changing your business title in the game's options menu.
 Moved the function to change your business title into the game's options menu. There's now an option called change business title. Your business title will still remain visible in the business information menu.
 Added the ability to abort entire dialogs by pressing the escape key. This is especially useful when browsing through multiline dialogs.
 Made it so the drink lemonade item now tells you about your hydration status instead of how many filled cups of lemonade you have in the business actions menu.
-Increased The flexibility of choosing your own business titles in the game. You can now put spaces and Basic punctuation in their to add some depth to the title.
-Added some suddle typing sounds to all input prompts used in the game.
+Increased The flexibility of choosing your own business titles in the game. You can now put spaces and Basic punctuation in there to add some depth to the title.
+Added some subtle typing sounds to all input prompts used in the game.
 Fixed some small bugs with the game's auto saver.
 Made it so you can no longer sell a single cup of lemonade for more than 10 dollars in cash.
-Added a suddle sound that let's you know that the game has been saved.
+Added a subtle sound that lets you know that the game has been saved.
 Added the ability to autosave the game after a day has ended in the game. This also applies to setting up the game for the first time as well.
 New in 1.5.
 Added a hidden keyboard shortcut to announce the current music volume in all menus. Holding Alt and pressing Left + Right or Right + Left arrows will now speak the current menu music volume.
 Made it so you can no longer sell a single cup of lemonade for more than 100 dollars in cash.
-Refactored the lemonade seller. You're now able to type actual decimal values to sell cups of lemonade for grater than or less than a dollar.
+Refactored the lemonade seller. You're now able to type actual decimal values to sell cups of lemonade for greater than or less than a dollar.
 Replaced the menu sounds with new ones. This also includes some new music as well.
 Introduced a new realistic currency system. The game now supports dollar and cent readouts. This allows for more natural and precise item pricing.
 Made it so if you fail to enter a Business title at the start of the game, it will take you back to the input prompt to re-enter it again, instead of exiting the game entirely.
 Increased your starting cash from 50 to 100 dollars.
 Reduced the cost of all ingredient bundles to make the game easier to play in earlier levels.
 Added some sounds for purchasing ingredient bundles.
-Changed the bundle names in the buy ingredients menu to sound more creative than it's older counterparts.
+Changed the bundle names in the buy ingredients menu to sound more creative than its older counterparts.
 New in 1.4.
 Reorganized the Buy ingredients menu into 2 separate menus.
-Made it so the menu prompts that asked weather you'd like to buy ice and salt will now show up after you type how much of an ingredient bundle you'd like to buy.
+Made it so the menu prompts that asked whether you'd like to buy ice and salt will now show up after you type how much of an ingredient bundle you'd like to buy.
 Made it so buying an ingredient bundle shows the user the cost of the bundle when hovering over the item.
 Added the ability to purchase ingredient bundles to speed up the lemonade making process.
 Moved the time period stat into the text that shows what time it is in the business information menu.
-Fixed some issues pertaining to the daily summery viewer.
-Moved all of the game related options out of the game's main menu into it's own game options menu.
+Fixed some issues pertaining to the daily summary viewer.
+Moved all of the game related options out of the game's main menu into its own game options menu.
 Added the ability to restart the game by pressing the restart game option in the game's main menu.
 Fixed a bug where the time period level per day would get stuck at the first level at the start of each month.
-Fixed a bug where selling cups of lemonade would show incorrect empty cups after the day has ended in the daily summery report.
+Fixed a bug where selling cups of lemonade would show incorrect empty cups after the day has ended in the daily summary report.
 New in 1.3.
 Added the ability to change your business title right from the business information menu. You no longer need to reset the game to have it pop up again.
 Added contextual stats to all of the options found in the business actions menu of the game.
@@ -280,35 +280,35 @@ Made it so costs of items are shown next to the item itself in the ingredients m
 Moved the buy ingredients option from the game's main menu to the business actions menu.
 Revamped the user interface in the game. The game's main menu is now grouped into several sub menus for easier navigation.
 New in 1.2.
-Improved the daily summery tracker by adding some stats that weren't their before. It's also now slightly reworded for better readability.
-Made it so the game remembers the last item that you've recently selected. This is useful for returning back to a spisific item in the menu without having to start over from the top of the menu again.
+Improved the daily summary tracker by adding some stats that weren't there before. It's also now slightly reworded for better readability.
+Made it so the game remembers the last item that you've recently selected. This is useful for returning back to a specific item in the menu without having to start over from the top of the menu again.
 Added the ability to track how many cups of lemonade you've sold so far. This stat will now be shown in the game's main menu.
-Made it so resetting your game's progress will now cause you to restart the game for the changes to propperly take effect.
+Made it so resetting your game's progress will now cause you to restart the game for the changes to properly take effect.
 Added the ability to set your business title at the start of a new game. You'll be asked to set this upon starting a new save.
 Changed the way selling lemonade works. Instead of asking the user what price each cup of lemonade should be sold for, it will now ask you how many cups you'd like to sell, and what price you'd like each cup to be sold for.
 Implemented a New in-game calendar system that keeps track of how many days you've ran your business. The date menu item will now tell you what the actual date is in the game world.
-Made it so the temprature stat also shows up in celsius as well, not just in fahrenheit.
+Made it so the temperature stat also shows up in celsius as well, not just in fahrenheit.
 Made it so the hydration stat now includes a descriptive label that changes based on how hydrated you are.
-Reversed the thurst system's lojic to decrease your hydration level instead of increasing it. From now on, your hydration level will start at 100 percent, and every time the temprature changes throughout the day, it will steadily drop to denote having to drink more to keep it up.
+Reversed the thirst system's logic to decrease your hydration level instead of increasing it. From now on, your hydration level will start at 100 percent, and every time the temperature changes throughout the day, it will steadily drop to denote having to drink more to keep it up.
 New in 1.1.
 Fixed a bug where drinking multiple cups of lemonade displayed incorrect thirst reduction percentages. The game now correctly calculates and reports the total thirst dropped based on your current thirst level.
-Made it so drinking a cup of lemonade drops your thurst by a random amount, between 1 to 5 percent.
+Made it so drinking a cup of lemonade drops your thirst by a random amount, between 1 to 5 percent.
 Made it so you are able to type how many cups of lemonade you'd like to drink from the already poured cups of lemonade you currently have.
-Added a new Thirst mechanic that keeps track of how hydrated you are in the game. Therefore, you can now view your thurst stat in the game's main menu.
+Added a new Thirst mechanic that keeps track of how hydrated you are in the game. Therefore, you can now view your thirst stat in the game's main menu.
 Added the ability to reload the game by pressing the reload game option in the game's main menu.
 Added some sounds for buying ingredients for making lemonade in the game.
 Added the ability to reset your game's progress by pressing the reset game option in the game's main menu.
 Added the ability to quickly save your game's progress by pressing the save game option in the game's main menu.
 Added the ability to save your game's progress when pressing escape. The escape key will now bring up Additional menu options for what to do when it asks you if you want to quit the game or not.
-Fixed a bug where costs of items wouldn't update properly upon starting a new day after copying or exporting a daily summery.
+Fixed a bug where costs of items wouldn't update properly upon starting a new day after copying or exporting a daily summary.
 New in 1.0.
-Added the ability to copy and export your daily summeries to a file that show up at the end of each day.
+Added the ability to copy and export your daily summaries to a file that show up at the end of each day.
 Added the ability to view the daily summary of your business at the end of each day. This includes things like your overall balance, your current inventory, and how much lemonade is left in the pitcher.
 You can now buy ice to make a pitcher of lemonade.
 Made it so temperatures are no longer randomized throughout the day. The game now uses a dynamic temperature system that scales based on the current day, and time of day. Each day defines a temperature range, which increases the more the game progresses.
-Made it so the game's clock time folows the day time pattern, instead of randomizing the time each day. It will also denote weather the time is set to A-M or P-M when reading the time in the game's main menu.
+Made it so the game's clock time folows the day time pattern, instead of randomizing the time each day. It will also denote whether the time is set to A-M or P-M when reading the time in the game's main menu.
 Made it so the day and level systems are now separated. Each day contains 6 levels, representing time blocks, such as early morning, early afternoon, mid afternoon, early evening, midnight, and late night. After reaching level 6, the level resets back to 1, and the day increases by 1.
-The pricing system has  now been reworked to scale with both the current day and level. This allows for gradual and realistic economic inflation. This system encourages long-term strategy, high-stakes resource management, and optimized pricing.
+The pricing system has now been reworked to scale with both the current day and level. This allows for gradual and realistic economic inflation. This system encourages long-term strategy, high-stakes resource management, and optimized pricing.
 Enhanced all purchase dialogs to now include the quantity bought, the total cost of the purchase, and the remaining cash after the transaction.
 Added the ability to drink the lemonade you made and poured into a cup.
 Added some sounds for making and pouring lemonade in the game.

@@ -1,5 +1,7 @@
 ####These are the things that need to be finished for future versions of the game.
 
+**Unfinished. Add some map music to the game, and the ability to turn their volume up or down with the page up and down keys.
+
 ##These are the things that are already finished from earlier versions of the game.
 
 **Finished. Add storage or preservation upgrades the player can buy to slow down water evaporation, salt clumping, and ice melting.
@@ -26,6 +28,6 @@
 **Finished. Add random events to the game.
 **Finished. Add a popularity system to the game when selling lemonade.
 **Finished. Add contextual info about how many of an ingredient there is per item when buying one from the store.
-**Finished. Make it so sertain Ingredients can be optional.
-**Finished. Make it so you can choose how much of an Ingredient can go in the piture.
+**Finished. Make it so certain Ingredients can be optional.
+**Finished. Make it so you can choose how much of an Ingredient can go in the pitcher.
 **Finished. Convert this game to nvgt.
