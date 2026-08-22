@@ -24,6 +24,10 @@ Making lemonade:
 
 When you make lemonade at the actions station, you will be asked how many cups to make, followed by how much of each ingredient to add. Each prompt prefills a suggested balanced amount based on how many cups you are making, targeting one of each main ingredient per cup and a small amount of ice and salt. If you enter an amount that differs from the suggestion, a confirmation menu will warn you of the likely result and let you revert or proceed. Getting the balance right matters because customers will react based on how the drink tastes.
 
+Pouring lemonade into a serving cup uses one of your empty cups. When a customer is served they hand the empty cup back, so cups cycle back and forth and only run low from spills or theft, meaning you will need to restock empty cups now and then.
+
+A small pinch of salt improves an already good drink and makes a customer more likely to tip. On a hot day a good amount of ice does the same and is more welcome, while on a cold day customers turn on ice sooner. Too much salt or ice still draws a complaint.
+
 Pricing:
 
 You set your prices at the pricing station at your lemonade stand. Your base price per cup carries over from day to day, clamped into that day's allowed range, so you only change it when you want to rather than being asked every morning. A suggested price is based on your current day and level. The minimum is the suggested price and the maximum is four times the suggested price. Prices between one and two times the suggested price cause customers to hesitate. Prices above two times the suggested price give customers a chance to refuse outright, with the chance increasing the higher you go. Desperate customers never refuse no matter the price. The pricing station also lets you set a different price for each customer type as a percentage of the base, such as a discount for children or the elderly. Each type's hesitation, refusal chance, and patience are based on their own price rather than the base, so a discounted group is more patient and less likely to refuse, while an overcharged group grows impatient and refuses more often. The config files set the starting per-type prices and the allowed percentage range, while the pricing station sets your own prices within those limits for the current game.
@@ -38,7 +42,7 @@ There are 11 customer types, each with unique behavior, patience, and reactions.
 
 Normal: A standard customer with no special traits.
 Nice: Friendly, forgiving of high prices, and more likely to tip.
-Mean: Always complains regardless of recipe quality. Never tips.
+Mean: Arrives hostile and, if left un-calmed, complains no matter the recipe, refuses to pay for a bad drink, costs extra reputation, and badmouths your stand so nearby waiting customers lose patience. Talk to a mean customer for a chance to calm them down, after which they behave like a normal customer and can even tip.
 Desperate: Sprints to your stand and pays 50 percent more. Never refuses on price.
 Charitable: Buys a cup to deliver to someone else. Takes the cup away without drinking at the stand. Always tips generously.
 Group: Orders multiple cups for their whole group. You need enough filled cups for everyone.
@@ -50,7 +54,7 @@ Thief: Attempts to steal ingredients when they reach your stand. Chase them by s
 
 Talking to customers:
 
-Select a customer from the serve menu and choose talk to chat with them. Each type has unique things to say. Talking too many times will exhaust their patience and they will leave with a small reputation penalty.
+Select a customer from the serve menu and choose talk to chat with them. Each type has unique things to say. Talking now builds rapport: chatting raises the chance a customer leaves a tip when you serve them a good drink, and friendly types like the elderly, nice, and returning customers also become willing to wait longer. Talking to a mean customer has a chance to calm them down. As before, talking too many times will exhaust a customer's patience and they will leave with a small reputation penalty, so there is a limit to how much rapport you can build.
 
 Customer reactions:
 
@@ -60,7 +64,7 @@ Severely unbalanced lemonade causes a full tantrum. The customer spits it out, s
 
 Spills and napkins:
 
-When a customer spills their drink, the counter becomes wet. The greeter will offer you a napkin. Use the napkin on the wet tile to clean it up, then recycle the used napkin from your inventory with shift enter.
+When a customer spills their drink, the counter becomes wet. Use a napkin on the wet tile to clean it up, then recycle the used napkin from your inventory with shift enter. The greeter offers you a napkin when a spill first happens, and you can buy more napkins, singly or in small, medium, and large packs, at the cleaning station in the market.
 
 Reputation:
 
@@ -69,6 +73,10 @@ Your reputation starts at 100 and ranges from 0 to 200. Serving customers well r
 Random events:
 
 At the end of each time period there is a chance of a random event. Hot days can trigger free water donations or heatstroke costs. Cold days can cause slow business or freeze your ingredients. Other events include a lucky viral bonus or a thief stealing from your cash box overnight.
+
+Overnight spoilage:
+
+Between days, some of your ingredients can spoil. Ice melts, lemons rot, water evaporates, and salt can clump. Spoiled ingredients are turned into discardable versions that stay in your inventory rather than vanishing, so you can recycle them with shift enter.
 
 Keyboard shortcuts:
 
@@ -109,7 +117,7 @@ Lines starting with a semicolon, hash, or double slash are treated as comments a
 Three files, main.table, customers.table, and passers.table, use section headers in square brackets. These are not cosmetic. The parser uses them to know which format to expect. Do not remove or rename these headers or the parser will not read the file correctly.
 Each functional header has a warning comment placed directly below it inside the file as a reminder. That comment is cosmetic and can be removed, but the header itself must stay exactly as written.
 
-The remaining files, main.event, single_ingredients.store, bundle_ingredients.store, single_posters.store, and bundle_posters.store, do not use functional section headers. Every line in those files follows the same format throughout.
+The remaining files, main.event, single_ingredients.store, bundle_ingredients.store, single_posters.store, bundle_posters.store, single_napkins.store, and bundle_napkins.store, do not use functional section headers. Every line in those files follows the same format throughout.
 
 Sections that use key=value pairs are for flat settings with a single value per entry. Sections that use colon-delimited rows are for data entries with multiple fields per line.
 
@@ -147,7 +155,7 @@ none = no stat is affected.
 Note: you can freely add new events or remove existing ones. However, the target field is limited to the values listed above. Using any other value will cause the event to fire but have no effect on any stat, as the game code only recognizes these specific targets.
 
 min_amount and max_amount
-The range of values the effect rolls between. Supports expressions using level, day, and placed as variables with the operators *, /, +, and -. Examples: 5*level*day, placed/2, 100.
+The range of values the effect rolls between. Supports expressions using level, day, and placed as variables with the operators *, /, +, and -. Examples: 5*level*day, placed/2, 100. Note: the level variable here, and in the store cost expressions, is a normalized measure of how far through the day it is, anchored so it matches the old six level day, rather than the raw level number. This keeps amounts consistent if you change how many levels a day has with hours_per_level.
 
 use_percent
 Controls whether the rolled amount is treated as a flat value or a percentage of the player's current stat.
