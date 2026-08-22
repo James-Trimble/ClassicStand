@@ -517,7 +517,7 @@ if(daynumber > 1)
 string spoilage_msg = "";
 if(ices > 0)
 {
-double ice_lost = floor(ices * random_float(0.5, 1.0));
+double ice_lost = floor(ices * random_float(spoilage_get("ice_min", 0.15), spoilage_get("ice_max", 0.30)));
 if(ice_lost > 0)
 {
 ices -= ice_lost;
@@ -528,7 +528,7 @@ spoilage_msg += "Your ice melted overnight. You lost " + int(ice_lost) + " bag" 
 }
 if(lemons > 0)
 {
-double lemons_lost = floor(lemons * random_float(0.1, 0.3));
+double lemons_lost = floor(lemons * random_float(spoilage_get("lemon_min", 0.05), spoilage_get("lemon_max", 0.15)));
 if(lemons_lost > 0)
 {
 lemons -= lemons_lost;
@@ -539,7 +539,7 @@ spoilage_msg += "Some of your lemons rotted overnight. You lost " + int(lemons_l
 }
 if(waters > 0)
 {
-double water_lost = floor(waters * random_float(0.05, 0.15));
+double water_lost = floor(waters * random_float(spoilage_get("water_min", 0.05), spoilage_get("water_max", 0.10)));
 if(water_lost > 0)
 {
 waters -= water_lost;
@@ -550,7 +550,7 @@ spoilage_msg += "Some of your water evaporated overnight. You lost " + int(water
 }
 if(salts > 0)
 {
-double salt_lost = floor(salts * random_float(0.1, 0.3));
+double salt_lost = floor(salts * random_float(spoilage_get("salt_min", 0.05), spoilage_get("salt_max", 0.15)));
 if(salt_lost > 0)
 {
 salts -= salt_lost;
@@ -728,6 +728,7 @@ load_bundle_napkin_store();
 load_main_table_thresholds();
 load_main_table_time();
 load_main_table_pricing();
+load_main_table_spoilage();
 load_main_table_items();
 load_customer_table();
 load_passer_table();

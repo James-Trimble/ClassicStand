@@ -53,6 +53,19 @@ hours_per_level=4
 min_percent=25
 max_percent=200
 
+[spoilage]
+
+; Required header — removing or renaming this will break the file.
+
+ice_min=0.15
+ice_max=0.30
+lemon_min=0.05
+lemon_max=0.15
+salt_min=0.05
+salt_max=0.15
+water_min=0.05
+water_max=0.10
+
 [items]
 
 ; Required header — removing or renaming this will break the file.

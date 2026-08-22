@@ -2,6 +2,7 @@ dictionary main_newgame;
 dictionary main_thresholds;
 dictionary main_time;
 dictionary main_pricing;
+dictionary main_spoilage;
 
 void load_main_table_newgame()
 {
@@ -59,6 +60,19 @@ double pricing_get(string key, double fallback)
 if(!main_pricing.exists(key)) return fallback;
 string v;
 main_pricing.get(key, v);
+return string_to_number(v);
+}
+
+void load_main_table_spoilage()
+{
+load_section_dict("data/config/tables/main.table", "[spoilage]", main_spoilage);
+}
+
+double spoilage_get(string key, double fallback)
+{
+if(!main_spoilage.exists(key)) return fallback;
+string v;
+main_spoilage.get(key, v);
 return string_to_number(v);
 }
 
