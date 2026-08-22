@@ -60,6 +60,7 @@ menu 8 8 25 25 pricemenu
 menu 32 36 23 27 buymenu
 menu 38 42 23 27 postermenu
 menu 37 37 25 25 cleaningmenu
+menu 37 37 26 27 preservemenu
 
 # Zones
 
@@ -82,5 +83,6 @@ zone 30 45 28 32 North wall of the market.
 zone 32 36 23 27 Ingredients station. Press enter to buy ingredients.
 zone 38 42 23 27 Poster shop. Press enter to buy posters to hang around the neighborhood.
 zone 37 37 25 25 Cleaning station. Press enter to buy napkins.
+zone 37 37 26 27 Preservation shop. Press enter to buy storage upgrades.
 zone 42 46 18 32 East wall of the market.
 zone 48 50 0 50 East boundary approaching.

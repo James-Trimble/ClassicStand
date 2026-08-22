@@ -66,6 +66,19 @@ salt_max=0.15
 water_min=0.05
 water_max=0.10
 
+[storage]
+
+; Required header — removing or renaming this will break the file.
+
+tier1_reduction=0.2
+tier2_reduction=0.4
+tier3_reduction=0.6
+tier4_reduction=0.8
+tier1_cost=500
+tier2_cost=2000
+tier3_cost=4000
+tier4_cost=6000
+
 [items]
 
 ; Required header — removing or renaming this will break the file.

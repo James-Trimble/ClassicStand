@@ -3,6 +3,7 @@ dictionary main_thresholds;
 dictionary main_time;
 dictionary main_pricing;
 dictionary main_spoilage;
+dictionary main_storage;
 
 void load_main_table_newgame()
 {
@@ -73,6 +74,19 @@ double spoilage_get(string key, double fallback)
 if(!main_spoilage.exists(key)) return fallback;
 string v;
 main_spoilage.get(key, v);
+return string_to_number(v);
+}
+
+void load_main_table_storage()
+{
+load_section_dict("data/config/tables/main.table", "[storage]", main_storage);
+}
+
+double storage_get(string key, double fallback)
+{
+if(!main_storage.exists(key)) return fallback;
+string v;
+main_storage.get(key, v);
 return string_to_number(v);
 }
 

@@ -895,6 +895,59 @@ play_poster_sound();
 dlg("You bought the " + selected.display_name + " for " + convert_to_currency(total) + ". You received " + receipt + ". You now have " + convert_to_currency(cash) + " remaining.");
 posterbmenu(sub_id);
 }
+void preservemenu()
+{
+setupmenu();
+int buyable = 0;
+/* List each upgrade's next buyable tier, grouped by owned tier ascending so the cheapest next tiers come first; maxed (tier 4) upgrades are skipped. */
+for(int t = 0; t < 4; t++)
+{
+for(uint i = 0; i < storage_targets.length(); i++)
+{
+if(storage_owned_tier(storage_targets[i]) == t)
+{
+int nextTier = t + 1;
+int cost = int(storage_get("tier" + nextTier + "_cost", 0));
+m.add_item(storage_names[i] + ", tier " + nextTier + " of 4: costs " + convert_to_currency(cost), storage_ids[i]);
+buyable++;
+}
+}
+}
+if(buyable == 0)
+{
+speak("All storage upgrades are maxed out.");
+return;
+}
+m.add_item("back", "back");
+m.intro_text = "Preservation shop.";
+int mres = m.run();
+string sel = m.get_item_id(mres);
+if(mres == -1 || sel == "back") return;
+buy_storage_upgrade(sel);
+preservemenu();
+return;
+}
+void buy_storage_upgrade(string id)
+{
+int idx = -1;
+for(uint i = 0; i < storage_ids.length(); i++)
+if(storage_ids[i] == id) { idx = int(i); break; }
+if(idx < 0) return;
+string target = storage_targets[idx];
+int owned = storage_owned_tier(target);
+if(owned >= 4) { dlg("That upgrade is already at its maximum tier."); return; }
+int nextTier = owned + 1;
+int cost = int(storage_get("tier" + nextTier + "_cost", 0));
+if(cash < cost)
+{
+dlg("You don't have enough cash to buy that upgrade. It costs " + convert_to_currency(cost) + ".");
+return;
+}
+cash -= cost;
+storage_tiers.set(target, nextTier);
+p.play_stationary("sounds/misc/buy" + random(1, 4) + ".ogg", false);
+dlg(storage_names[idx] + " upgraded to tier " + nextTier + " of 4 for " + convert_to_currency(cost) + ".");
+}
 void pricemenu()
 {
 setupmenu();

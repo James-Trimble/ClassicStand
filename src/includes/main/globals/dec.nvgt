@@ -55,4 +55,8 @@ custom_menu m;
 virtual_dialogs vd;
 sound_pool ambpool, muspool, custpool, passerpool, personpool, p, pool, spool, temp;
 int sourcevolume=0;
+string[] storage_ids = {"icebox", "pantry", "sealedjars", "coveredjugs"};
+string[] storage_targets = {"ice", "lemon", "salt", "water"};
+string[] storage_names = {"Icebox", "Pantry", "Sealed jars", "Covered jugs"};
+dictionary storage_tiers;
 vector me;

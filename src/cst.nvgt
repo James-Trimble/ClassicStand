@@ -60,6 +60,7 @@ soldcups=0;
 level=1;
 load_main_table_time();
 group_price_mult.delete_all();
+storage_tiers.delete_all();
 selling_price=0;
 pitcherstat=0;
 cups=random(int(newgame_get("cups_min", 3)), int(newgame_get("cups_max", 6)));

@@ -20,6 +20,7 @@ The customer service counter is also located at your lemonade stand. Serve waiti
 The ingredients station is inside the market to the east. Buy ingredients here.
 The poster shop is also in the market. Buy posters to hang around the neighborhood here.
 The cleaning station is also in the market. Buy napkins to clean up spills here.
+The preservation shop is also in the market. Buy storage upgrades to slow overnight spoilage here.
 
 Making lemonade:
 
@@ -82,6 +83,7 @@ At the end of each time period there is a chance of a random event. Hot days can
 Overnight spoilage:
 
 Between days, some of your ingredients can spoil. Ice melts, lemons rot, water evaporates, and salt can clump. Spoiled ingredients are turned into discardable versions that stay in your inventory rather than vanishing, so you can recycle them with shift enter.
+You can buy tiered preservation upgrades at the preservation shop in the market, an icebox for ice, a pantry for lemons, sealed jars for salt, and covered jugs for water, to slow how much each one spoils overnight. Each upgrade has four tiers, and the top tier removes most of the nightly loss without ever eliminating it entirely.
 
 Keyboard shortcuts:
 
@@ -472,6 +474,17 @@ hours_per_level = how many in-game hours each level lasts, which also sets how m
 Flat key=value settings controlling the per customer group pricing range.
 
 min_percent and max_percent = the lowest and highest percentage of the base price you can set for a customer group at the pricing station. Entries outside this range are clamped.
+
+[spoilage]
+Flat key=value overnight spoilage rates for each perishable ingredient.
+
+ice_min and ice_max, lemon_min and lemon_max, salt_min and salt_max, water_min and water_max = the fraction of each ingredient's stock that spoils overnight. For example 0.15 to 0.30 means ice loses between 15 and 30 percent of its stock each night, before any preservation upgrade.
+
+[storage]
+Flat key=value settings for the preservation upgrades sold at the preservation shop.
+
+tier1_reduction through tier4_reduction = how much each owned upgrade tier reduces that ingredient's overnight spoilage, as a fraction. For example 0.8 means the tier removes 80 percent of the nightly loss.
+tier1_cost through tier4_cost = the cost in cents to buy each tier. The four upgrades, icebox, pantry, sealed jars, and covered jugs, all use the same tier reductions and costs.
 
 [items]
 Defines every item in the game.
