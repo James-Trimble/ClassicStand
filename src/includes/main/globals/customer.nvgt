@@ -121,7 +121,7 @@ if(nx == targetx && ny == targety)
 waiting = true;
 wave_started = true;
 patiencetimer.restart();
-if(stand_closed) patiencetimer.pause();
+if(stand_closed && type != "thief") patiencetimer.pause();
 custpool.play_extended_2d("sounds/misc/customer.ogg", me.x, me.y, nx, ny, 0, 0, 0, 0, false, 0, 0, 0, pitch, false);
 if(type == "thief")
 {

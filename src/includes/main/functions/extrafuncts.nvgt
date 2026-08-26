@@ -629,7 +629,7 @@ void generate_daily_summary()
     level += 1;
     if(level <= maxlevel)
     {
-    trigger_event(int(events_get("frequency", 60)));
+    trigger_event(int(clamp(events_get("frequency", 60), 0, 100)));
     destroy_all_customers();
     destroy_all_passers();
     spawn_customer_wave();
